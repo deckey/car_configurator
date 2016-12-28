@@ -1,4 +1,4 @@
 .vscode/
 venv/
 __pycache__
-*._pyc
+car_configurator/**/*._pyc

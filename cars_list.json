@@ -3,66 +3,108 @@
         "_id": 0,
         "base_price": 13000,
         "description": "City car",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "Compact",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "Compact"
+            "price": 0,
+            "style": "Economy"
+        }
     },
     {
         "_id": 1,
         "base_price": 14000,
         "description": "Small family car",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "Hatchback",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "Hatchback"
+            "price": 0,
+            "style": "Economy"
+        }
     },
     {
         "_id": 2,
         "base_price": 15000,
         "description": "Comfort limousine",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "Sedan",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "Sedan"
+            "price": 0,
+            "style": "Economy"
+        }
     },
     {
         "_id": 3,
         "base_price": 16000,
         "description": "Weekend escape",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "Crossover",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "Crossover"
+            "price": 0,
+            "style": "Economy"
+        }
     },
     {
         "_id": 4,
         "base_price": 18000,
         "description": "All terrain vehicle",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "SUV",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "SUV"
+            "price": 0,
+            "style": "Economy"
+        }
     },
     {
         "_id": 5,
         "base_price": 22000,
         "description": "Fast coupe",
+        "engine": {
+            "fuel": "petrol",
+            "name": "1.2 TSI",
+            "power": "100 HP",
+            "price": 1800,
+            "transmission": "Manual"
+        },
+        "model": "Sports",
         "trim": {
             "description": "Standard equipment package",
-            "price": 4000,
-            "style": "Tech"
-        },
-        "type": "Sports"
+            "price": 0,
+            "style": "Economy"
+        }
     }
 ]

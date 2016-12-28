@@ -1,11 +1,18 @@
 {
-    "_id": 0,
-    "base_price": 13000,
-    "description": "City car",
+    "_id": 1,
+    "base_price": 14000,
+    "description": "Small family car",
+    "engine": {
+        "fuel": "petrol",
+        "name": "1.8 TCI",
+        "power": "145 HP",
+        "price": 4300,
+        "transmission": "Manual"
+    },
+    "model": "Hatchback",
     "trim": {
         "description": "Standard equipment package",
-        "price": 4000,
-        "style": "Tech"
-    },
-    "type": "Compact"
+        "price": 0,
+        "style": "Economy"
+    }
 }

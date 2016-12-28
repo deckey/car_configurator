@@ -23,6 +23,23 @@ def load_car():
     return car
 
 
+def find_car(model):
+    cars = cars_find_all()
+    for car in cars:
+        if car['model'] == model:
+            print('CAR FOUND...', car)
+            return car
+    return cars[0]
+
+
+def find_engine(name):
+    engines = create_engines()
+    for engine in engines:
+        if engine['name'] == name:
+            return engine
+    return engines[0]
+
+
 def create_cars():
     ''' initialize values (mockup of database objects) '''
     # cars

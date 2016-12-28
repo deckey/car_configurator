@@ -8,7 +8,7 @@
         <div class="col-md-8">
              {% for engine in engines %}
             <h3>
-                <label class="radio-inline col-md-3 class-thumbnail engineradio" data-equipment="{{ engine }}"><input type="radio" name="engineradio" value="{{ engine.name }}"><strong>
+                <label class="radio-inline col-md-3 class-thumbnail engineradio" data-engine="{{ engine }}"><input type="radio" name="engineradio" value="{{ engine.name }}"><strong>
             {{ engine.name }}
             </strong>
             <h4> {{ engine.power }} </h4>
@@ -19,9 +19,9 @@
             {% endfor %}
 
             <div class="col-md-4"><h4>Transmission</h4>
-                <select class="form-control">
-                <option>Manual</option>
-                <option>Automatic</option>
+                <select id="selectTransmission" class="form-control">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
             </select> 
             </div>
         </div>
@@ -34,7 +34,12 @@
     <div class="col-md-8">
         <a class="btn btn-default col-md-2 " href="{{ url_for('step2') }}">
             << Trim</a>
-            <a class="btn btn-default col-md-2 right" href="{{ url_for('step4') }}">Interior >></a>
+            <form action="step4" method="POST">
+            <input id="engineName" name="car_engine_name" value="{{ car.engine.name }}"/>
+            <input id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}"/>
+            <input id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}"/>
+            <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step4') }}">Interior >>
+            </form>
     </div>
     <div class="col-md-4 ">
        {% include 'car_price.html' %}
