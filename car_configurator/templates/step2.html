@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% include 'head.html' %} {% block content %}
+
+<div class="container">
+
+    {% include 'header.html' %}
+
+    <div class="row content">
+        <div class="col-md-8">
+            {% for trim in trims %}
+            <h3>
+                <label class="radio-inline col-md-3 class-thumbnail trimradio" data-equipment="{{ trim }}"><input type="radio" name="trimradio" value="{{ trim.style }}"><strong>
+            {{ trim.style }}
+            </strong>
+            <h4> {{ trim.description }} </h4>
+            <h4>Price: &euro;{{ "{:,}".format(trim.price) }}</h4>
+        </label>
+            </h3>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4" id="summary">
+            {% include 'car_details.html' %}
+        </div>
+        <br class="clearfix"/>
+    </div>
+
+    <div class="col-md-8">
+        <a class="btn btn-default col-md-2 " href="{{ url_for('step1') }}">
+            << Class</a>
+            <form action="step3" method="POST">
+            <input type="hidden" id="carStyle" name="style" value="{{car.trim.style}}"/>
+            <input type="hidden" id="trimPrice" name="trim_price" value="{{ car.trim.price }}"/>
+            <button class="btn btn-default col-md-2 right" href="{{ url_for('step3') }}">Engine >>
+            </form>
+    </div>
+    <div class="col-md-4 ">
+       {% include 'car_price.html' %}
+    </div>
+{% include 'footer.html' %} {% endblock content %}

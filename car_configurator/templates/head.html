@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/glyphicons.css') }}">
+    <title>Car configurator</title>
+</head>
+
+<!-- TESTING PURPOSES -->
+<body>
+    <div class="container">
+    <input id="carData" data-car="{{ car }}" value="{{ car }}" style="width:100%"/>
+    </div>
+</body>

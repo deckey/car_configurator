@@ -1,0 +1,11 @@
+{
+    "_id": 0,
+    "base_price": 13000,
+    "description": "City car",
+    "trim": {
+        "description": "Standard equipment package",
+        "price": 4000,
+        "style": "Tech"
+    },
+    "type": "Compact"
+}

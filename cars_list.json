@@ -1,0 +1,68 @@
+[
+    {
+        "_id": 0,
+        "base_price": 13000,
+        "description": "City car",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "Compact"
+    },
+    {
+        "_id": 1,
+        "base_price": 14000,
+        "description": "Small family car",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "Hatchback"
+    },
+    {
+        "_id": 2,
+        "base_price": 15000,
+        "description": "Comfort limousine",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "Sedan"
+    },
+    {
+        "_id": 3,
+        "base_price": 16000,
+        "description": "Weekend escape",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "Crossover"
+    },
+    {
+        "_id": 4,
+        "base_price": 18000,
+        "description": "All terrain vehicle",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "SUV"
+    },
+    {
+        "_id": 5,
+        "base_price": 22000,
+        "description": "Fast coupe",
+        "trim": {
+            "description": "Standard equipment package",
+            "price": 4000,
+            "style": "Tech"
+        },
+        "type": "Sports"
+    }
+]
