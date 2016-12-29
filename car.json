@@ -3,16 +3,17 @@
     "base_price": 14000,
     "description": "Small family car",
     "engine": {
-        "fuel": "petrol",
-        "name": "1.8 TCI",
-        "power": "145 HP",
-        "price": 4300,
+        "fuel": "diesel",
+        "name": "1.4 TSI",
+        "power": "120 HP",
+        "price": 3600,
         "transmission": "Manual"
     },
     "model": "Hatchback",
+    "price": 21600,
     "trim": {
-        "description": "Standard equipment package",
-        "price": 0,
-        "style": "Economy"
+        "description": "Executive level equipment",
+        "price": 4000,
+        "style": "Tech"
     }
 }

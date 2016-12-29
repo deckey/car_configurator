@@ -24,7 +24,7 @@ class CarEngine(dict):
 class Car(dict):
 
     default_trim = CarTrim('Economy', 'Standard equipment package', 0)
-    default_engine = CarEngine('1.2 TSI', '100 HP', 'petrol', 1800)
+    default_engine = CarEngine('1.2 TSI', '100 HP', 'petrol', 0)
 
     def __init__(self, _id, model, description, base_price):
         self._id = _id
@@ -33,13 +33,16 @@ class Car(dict):
         self.base_price = base_price
         self.trim = self.default_trim.__dict__
         self.engine = self.default_engine.__dict__
+        self.price = self.base_price
 
     @staticmethod
     def add_trim(car, trim):
         car['trim'] = trim
+        car['price'] = car['base_price'] + trim['price']
         return car
 
     @staticmethod
     def add_engine(car, engine):
         car['engine'] = engine
+        car['price'] = car['base_price'] + car['trim']['price'] + engine['price']
         return car

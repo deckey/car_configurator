@@ -1,12 +1,10 @@
 {% extends 'layout.html' %} {% include 'head.html' %} {% block content %}
 
 <div class="container">
-    
     {% include 'header.html' %}
-
     <div class="row content">
         <div class="col-md-8">
-             <!--{% for engine in engines %}
+            <!--{% for engine in engines %}
             <h3>
                 <label class="radio-inline col-md-3 class-thumbnail engineradio" data-engine="{{ engine }}"><input type="radio" name="engineradio" value="{{ engine.name }}"><strong>
             {{ engine.name }}
@@ -17,7 +15,7 @@
         </label>
             </h3>
             {% endfor %}-->
-<!--
+            <!--
             <div class="col-md-4"><h4>Transmission</h4>
                 <select id="selectTransmission" class="form-control">
                 <option value="Manual">Manual</option>
@@ -25,25 +23,26 @@
             </select> 
             </div>
         </div>-->
-        <div class="col-md-4" id="summary">
-            {% include 'car_details.html' %}
-            {% include 'car_engine.html' %}
-        </div>
-    </div>
 
-    <div class="col-md-8">
-        <a class="btn btn-default col-md-2 " href="{{ url_for('step3') }}">
-            << Trim</a>
-            <form action="step4" method="POST">
-            <input id="engineName" name="car_engine_name" value="{{ car.engine.name }}"/>
-            <input id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}"/>
-            <input id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}"/>
-            <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step5') }}">Interior >>
+        </div>
+        <div class="col-md-4" id="summary">
+            {% include 'car_details.html' %} {% include 'car_engine.html' %}
+        </div>
+        
+        <div class="col-md-8">
+            <a class="btn btn-default col-md-2 " href="{{ url_for('step3') }}">
+                << Trim</a>
+                    <form action="step4" method="POST">
+                        <input id="engineName" name="car_engine_name" value="{{ car.engine.name }}" />
+                        <input id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}" />
+                        <input id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}" />
+                        <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step5') }}">Interior >>
             </form>
     </div>
     <div class="col-md-4 ">
        {% include 'car_price.html' %}
     </div>
+</div>
 </div>
 
 {% include 'footer.html' %} {% endblock content %}

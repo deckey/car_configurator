@@ -15,6 +15,7 @@ def cars_find_all():
 def save_car(car):
     with open('car.json', 'w') as f:
         json.dump(car, f, sort_keys=True, indent=4, separators=(',', ': '))
+    return car
 
 
 def load_car():

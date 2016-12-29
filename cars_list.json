@@ -7,10 +7,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "Compact",
+        "price": 13000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,
@@ -25,10 +26,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "Hatchback",
+        "price": 14000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,
@@ -43,10 +45,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "Sedan",
+        "price": 15000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,
@@ -61,10 +64,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "Crossover",
+        "price": 16000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,
@@ -79,10 +83,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "SUV",
+        "price": 18000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,
@@ -97,10 +102,11 @@
             "fuel": "petrol",
             "name": "1.2 TSI",
             "power": "100 HP",
-            "price": 1800,
+            "price": 0,
             "transmission": "Manual"
         },
         "model": "Sports",
+        "price": 22000,
         "trim": {
             "description": "Standard equipment package",
             "price": 0,

@@ -42,7 +42,7 @@ $(function () {
         engine = eval("(" + $(this).data('engine') + ")");
 
         // update car summary panel       
-        $('#summaryEngine').text(engine.name);
+        $('#summaryEngine').text(engine.name + ' ( '+ engine.power+' ) ');
         $('#summaryFuel').text(engine.fuel);
         $('#totalPrice').fadeOut(function () {
             $('#totalPrice').text("\u20AC" + calculatePrice(car.base_price+car.trim.price, engine.price));
