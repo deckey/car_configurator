@@ -1,0 +1,26 @@
+<div class='col-md-6'>
+<h3>{{car.model}}</h3>
+<h4><i>Description: </i>{{car.description}}</h4>
+<h4><i>Trim level: </i><span id="trimLevel"><span>{{ car.trim.style }}</h4>
+<h4><i>Engine:</i><span  id="summaryEngine">{{ car.engine.name }} ( {{ car.engine.power }} )</span></h4>
+<h4><i>Fuel:</i><span  id="summaryFuel">{{ car.engine.fuel }}</span></h4>
+<h4><i>Transmission:</i><span  id="summaryTransmission"><span>{{ car.engine.transmission }} / 6G</h4>
+<h4><i>Wheels:</i><span  id="summaryWheelName">{{ '{}" {}'.format(car.wheel.size, car.wheel.material) }} </span></h4>
+<h4><i>Exterior:</i>
+    <span  id="summaryFeaturesExterior">
+    {{ '{}'.format(car.features.ext_color) }}
+    </span>
+</h4>
+<h4><i>Interior:</i>
+    <span  id="summaryFeaturesInterior">
+    {{ '{} {}'.format(car.features.int_color, car.features.material.lower()) }}
+    </span>
+</h4>
+</div>
+<div class='col-md-6'>
+    <h3>Extra equipment</h3>
+<span id="extraEquipment" ><span>
+        {% for extra in car.extras %}
+            <h4> {{ extra['name'] }} </h4>
+        {% endfor %}
+</div>

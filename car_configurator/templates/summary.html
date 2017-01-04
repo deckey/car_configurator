@@ -1,9 +1,23 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %} {% include 'head.html' %} {% block content %}
 
-{% block content %}
+<div class="container">
+    {% include 'header.html' %}
+    <div class="row content">
+        <div class="col-md-8" id="summary">
+            {% include 'car_final_summary.html' %}
+            
+        </div>
+         <div class="col-md-4" id="summaryPage">
+            <h3>Price: <span > <strong>&euro;{{ "{:,d}".format(car.price) }}</strong></span></h3>
+            <br/>
+            
+        </div>
+    </div>
+        <div class="col-md-8">
+            <a class="btn btn-default col-md-2 " href="{{ url_for('step5') }}">
+                << Extras</a>
+        </div>
 
-        <h3>Summary: Car components and price! </h3>
+</div>
 
-    {% include 'car_details.html' %}
-
-{% endblock content %}
+{% include 'footer.html' %} {% endblock content %}

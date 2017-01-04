@@ -35,14 +35,11 @@
         <a class="btn btn-default col-md-2 " href="{{ url_for('step2') }}">
             << Trim</a>
             <form action="step4" method="POST">
-            <input id="engineName" name="car_engine_name" value="{{ car.engine.name }}"/>
-            <input id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}"/>
-            <input id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}"/>
-            <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step4') }}">Interior >>
+            <input class="hidden" id="engineName" name="car_engine_name" value="{{ car.engine.name }}"/>
+            <input class="hidden" id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}"/>
+            <input class="hidden" id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}"/>
+            <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step4') }}">Features >>
             </form>
-    </div>
-    <div class="col-md-4 ">
-       {% include 'car_price.html' %}
     </div>
 </div>
 

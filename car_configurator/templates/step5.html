@@ -1,9 +1,47 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %} {% include 'head.html' %} {% block content %}
 
-{% block content %}
+<div class="container">
+    {% include 'header.html' %}
+    <div class="row content">
+        <div class="col-md-8">
+            <!-- Equipment extras -->
+            {% for equipment in extras.get_children() %}
+            <div class="col-md-4">
+                <h3> {{ equipment.get_name() }} </h3>
+                {% for sub_equipment in equipment.get_children() %}
+                <div class="checkbox extras-thumbnail">
+                    <label class="form-control">
+                            <input type="checkbox" value="{{ sub_equipment.name }}" data-price="{{ sub_equipment.price }}">
+                            {{ sub_equipment.name }}
+                            <span class="extras-price">
+                                <input type="number" value="{{ sub_equipment.price }}">
+                            &euro;{{ sub_equipment.price }}
+                            </span>
+                        </label>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4" id="summary">
+            <!-- Car summary -->
+            {% include 'car_details.html' %} {% include 'car_engine.html' %} {% include 'car_wheel.html' %} {% include 'car_features.html'
+            %} {% include 'car_extras.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <a class="btn btn-default col-md-2 " href="{{ url_for('step4') }}">
+            << Features</a>
+                <form action="summary" method="POST">
+                    <input class="hidden" id="carExtras" type="text" name="extras" value="{{ extras_equipment }}" />
+                    <input class="hidden"  id="carExtrasPrice" type="text" name="extras_price" value="{{ extras_prices }}" />
+                    <input class="hidden"  id="carExtrasTotalPrice" type="number" name="extras_total_price" value="{{ car.extras_price }}" />
+                    <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('summary') }}">
+                    Summary >>
+                    </form>
+        </div>
+    <div class="col-md-4 ">
+    </div>
+</div>
 
-        <h3>Step 5: Select equipment package! </h3>
-
-    {% include 'car_details.html' %}
-
-{% endblock content %}
+{% include 'footer.html' %} {% endblock content %}

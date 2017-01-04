@@ -1,0 +1,10 @@
+<h4><i>Color:</i>
+    <span  id="summaryFeaturesExterior">
+    {{ '{}'.format(car.features.ext_color) }}
+    </span>
+</h4>
+<h4><i>Interior:</i>
+    <span  id="summaryFeaturesInterior">
+    {{ '{} {}'.format(car.features.int_color, car.features.material.lower()) }}
+    </span>
+</h4>

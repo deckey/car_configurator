@@ -28,13 +28,10 @@
         <a class="btn btn-default col-md-2 " href="{{ url_for('step1') }}">
             << Class</a>
             <form action="step3" method="POST">
-            <input  id="carModel" name="car_model" value="{{car.model}}"/>
-            <input  id="trimStyle" name="trim_style" value="{{car.trim.style}}"/>
-            <input  id="trimPrice" name="trim_price" value="{{ car.trim.price }}"/>
+            <input class="hidden"  id="carModel" name="car_model" value="{{car.model}}"/>
+            <input class="hidden"  id="trimStyle" name="trim_style" value="{{car.trim.style}}"/>
+            <input class="hidden"  id="trimPrice" name="trim_price" value="{{ car.trim.price }}"/>
             <button class="btn btn-default col-md-2 right" href="{{ url_for('step3') }}">Engine >>
             </form>
-    </div>
-    <div class="col-md-4 ">
-       {% include 'car_price.html' %}
     </div>
 {% include 'footer.html' %} {% endblock content %}

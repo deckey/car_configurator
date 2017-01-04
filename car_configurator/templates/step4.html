@@ -4,45 +4,97 @@
     {% include 'header.html' %}
     <div class="row content">
         <div class="col-md-8">
-            <!--{% for engine in engines %}
-            <h3>
-                <label class="radio-inline col-md-3 class-thumbnail engineradio" data-engine="{{ engine }}"><input type="radio" name="engineradio" value="{{ engine.name }}"><strong>
-            {{ engine.name }}
-            </strong>
-            <h4> {{ engine.power }} </h4>
-            <h4> {{ engine.fuel }} </h4>
-            <h4>Price: &euro;{{ "{:,}".format(engine.price) }}</h4>
-        </label>
-            </h3>
-            {% endfor %}-->
-            <!--
-            <div class="col-md-4"><h4>Transmission</h4>
-                <select id="selectTransmission" class="form-control">
-                <option value="Manual">Manual</option>
-                <option value="Automatic">Automatic</option>
-            </select> 
-            </div>
-        </div>-->
 
+            <div class="row tx-grey">
+                <h3>Wheels</h3>
+                {% for wheel in wheels %}
+                <h3>
+                    <label class="radio-inline col-md-3 wheel-thumbnail wheelradio" data-wheel="{{ wheel }}"><input type="radio" name="wheelradio" value="{{ wheel.name }}"><strong>
+            {{ wheel.name }}
+            </strong>
+            <h4> {{ '{}" {}'.format(wheel.size, wheel.material) }} </h4>
+            <h4>Price: &euro;{{ "{:,}".format(wheel.price) }}</h4>
+        </label>
+                </h3>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Exterior</h3>
+                    <div id="exteriorColors" >
+                        <label style="background-color:#f7f6f6;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" class="glyphicon glyphicon-ok" value="Pearl white"/> 
+                        </label>
+                        <label style="background-color:#003748;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Dark blue"/>
+                        </label>
+                        <label style="background-color:#840705;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Maroon red"/>
+                        </label>
+                        <label style="background-color:#58330a;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Chocolate brown"/>
+                        </label>
+                        <label style="background-color:#c0c0c0;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Silver grey"/>
+                        </label>
+                        <label  style="background-color:#444444;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Magnetic grey"/>
+                        </label>
+                        <label style="background-color:#000000;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Black shade"/>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                <h3>Interior</h3>
+                    <div id="interiorColors" >
+                        <label style="background-color:#c0c0c0;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Light grey"/>
+                        </label>
+                        <label style="background-color:#444444;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Dark grey"/>
+                        </label>
+                        <label style="background-color:#ffe3ae;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Beige"/>
+                        </label>
+                        <label style="background-color:#000000;" class="radio-inline color-thumbnail colorradio">
+                            <input type="radio" name="colorradio" value="Black"/>
+                        </label>
+                    </div>
+                    
+                </div>
+                <div class="col-md-2">
+                <h3>Fabric</h3>
+                        <select class="form-control" id="materialType">
+                            <option value="Cloth">Cloth</option>
+                            <option value="Leather">Leather</option>
+                        </select>
+                    </div>
+            </div>
         </div>
+
         <div class="col-md-4" id="summary">
-            {% include 'car_details.html' %} {% include 'car_engine.html' %}
+            {% include 'car_details.html' %} {% include 'car_engine.html' %} {% include 'car_wheel.html' %}
+            {% include 'car_features.html' %}
         </div>
-        
-        <div class="col-md-8">
-            <a class="btn btn-default col-md-2 " href="{{ url_for('step3') }}">
-                << Trim</a>
-                    <form action="step4" method="POST">
-                        <input id="engineName" name="car_engine_name" value="{{ car.engine.name }}" />
-                        <input id="engineFuel" name="car_engine_fuel" value="{{ car.engine.fuel }}" />
-                        <input id="engineTransmission" name="car_engine_transmission" value="{{ car.engine.transmission }}" />
-                        <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step5') }}">Interior >>
+    </div>
+    <div class="col-md-8">
+        <a class="btn btn-default col-md-2 " href="{{ url_for('step3') }}">
+            << Engine</a>
+                <form action="step5" method="POST">
+                    <input class="hidden" id="wheelName" name="car_wheel_name" value="{{ car.wheel.name }}" />
+                    <input class="hidden" id="wheelMaterial" name="car_wheel_material" value="{{ car.wheel.material }}" />
+                    <input class="hidden" id="exteriorColor" name="exterior_color" value="{{ car.features.ext_color }}" />
+                    <input class="hidden" id="interiorColor" name="interior_color" value="{{ car.features.int_color }}" />
+                    <input class="hidden" id="interiorMaterial" name="interior_material" value="{{ car.features.material }}" />
+                    <button type="submit" class="btn btn-default col-md-2 right" href="{{ url_for('step5') }}">
+                Extras >>
             </form>
     </div>
     <div class="col-md-4 ">
-       {% include 'car_price.html' %}
     </div>
-</div>
 </div>
 
 {% include 'footer.html' %} {% endblock content %}

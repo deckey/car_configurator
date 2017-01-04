@@ -10,7 +10,7 @@
                 <h3><strong>{{ car.model }}</strong></h3>
                 <h4>Description: {{ car.description }}</h4>
                 <h4>Base price: &euro;{{ "{:,}".format(car.base_price) }}</h4>
-                <button class="btn btn-default" name="car_model" value="{{car.model}}" href="{{ url_for('step2') }}">Configure</a>
+                <button class="btn btn-default" name="car_model" value="{{ car.model }}" href="{{ url_for('step2') }}">Configure</a>
             </div>
             {% endfor %}
         </form>
