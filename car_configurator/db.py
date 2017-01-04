@@ -1,4 +1,3 @@
-from .js import JsObject
 import json
 from .models.Car import Car, CarEngine, CarTrim, CarWheel
 from .models.Equipment import *

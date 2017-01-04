@@ -1,8 +1,10 @@
-{% extends 'layout.html' %} {% include 'head.html' %} {% block content %}
+{% extends 'partials/layout.html' %} 
+{% include 'partials/head.html' %} 
+{% block content %}
 
 <div class="container">
 
-    {% include 'header.html' %}
+    {% include 'partials/header.html' %}
 
     <div class="row content">
         <div class="col-md-8">
@@ -19,7 +21,7 @@
         </div>
 
         <div class="col-md-4" id="summary">
-            {% include 'car_details.html' %}
+            {% include 'partials/car_details.html' %}
         </div>
         <br class="clearfix"/>
     </div>
@@ -34,4 +36,5 @@
             <button class="btn btn-default col-md-2 right" href="{{ url_for('step3') }}">Engine >>
             </form>
     </div>
-{% include 'footer.html' %} {% endblock content %}
+{% include 'partials/footer.html' %} 
+{% endblock content %}
