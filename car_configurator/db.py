@@ -12,7 +12,7 @@ car_file = os.path.join(dir, 'data/car.json')
 cars_file = os.path.join(dir, 'data/cars.json')
 
 
-def cars_find_all():
+def load_cars():
     with open(cars_file, 'r') as f:
         return json.load(f)
 
@@ -28,7 +28,7 @@ def load_car():
 
 
 def find_car(model):
-    cars = cars_find_all()
+    cars = load_cars()
     for car in cars:
         if car['model'] == model:
             return car
@@ -57,23 +57,6 @@ def find_wheel(name):
         if wheel['name'] == name:
             return wheel
     return wheels[0]
-
-
-def create_cars():
-    ''' initialize values (mockup of database objects) '''
-    # cars
-    c0 = Car(0, 'Compact', 'City car', 13000)
-    c1 = Car(1, 'Hatchback', 'Small family car', 14000)
-    c2 = Car(2, 'Sedan', 'Comfort limousine', 15000)
-    c3 = Car(3, 'Crossover', 'Weekend escape', 16000)
-    c4 = Car(4, 'SUV', 'All terrain vehicle', 18000)
-    c5 = Car(5, 'Sports', 'Fast coupe', 22000)
-    cars = [car.__dict__ for car in [c0, c1, c2, c3, c4, c5]]
-    # save cars list
-    with open(cars_file, 'w') as f:
-        json.dump([car for car in cars], f,
-                  separators=(',', ':'), sort_keys=True)
-    return cars
 
 
 def create_trims():

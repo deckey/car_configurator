@@ -1,25 +1,24 @@
 from car_configurator import app
 from .models.Car import Car, CarEngine, CarTrim
+from .models._AbstractFactory import AbstractCarFactory
 import datetime
 import car_configurator.db as db
 from flask import render_template, flash, request, jsonify, make_response, redirect
 import json
 
-cars = db.create_cars()
-
 
 @app.route('/')
 def index():
-    car = cars[0]
-    db.save_car(car)
-    return render_template('index.html', car=cars[0])
+    '''Home page'''
+    return render_template('index.html')
 
 
 @app.route('/step1')
 def step1():
     '''Car factory page, build your car from class to proceed further'''
-    car = db.load_car()
-    db.save_car(car)
+    default_factory = AbstractCarFactory().create_factory('default')
+    cars = default_factory.create_cars()
+    car = db.save_car(cars[0])
     return render_template(
         'step1.html',
         title='Step 1: Select car class',
@@ -31,6 +30,7 @@ def step1():
 def step2():
     ''' Car trim selector page, select trim level '''
     car = db.load_car()
+    cars = db.load_cars()
     trims = db.create_trims()
     if request.method == "POST":
         car_model = request.form['car_model']
@@ -48,6 +48,7 @@ def step2():
 def step3():
     ''' Car engine select page, select engine and transmission '''
     car = db.load_car()
+    cars = db.load_cars()
     engines = db.create_engines()
     if request.method == "POST":
         trim_style = request.form['trim_style']
@@ -63,16 +64,11 @@ def step3():
         engines=engines)
 
 
-@app.route('/car')
-def get_car():
-    car = db.load_car()
-    return jsonify(car)
-
-
 @app.route('/step4', methods=["GET", "POST"])
 def step4():
     ''' Select exterior features and include them in the car '''
     car = db.load_car()
+    cars = db.load_cars()
     if request.method == "POST":
         car_engine_name = request.form['car_engine_name']
         car_engine_transmission = request.form['car_engine_transmission']
@@ -94,6 +90,7 @@ def step4():
 def step5():
     '''Select extra components'''
     car = db.load_car()
+    cars = db.load_cars()
     print('step5 car price ', car['price'])
     if request.method == 'POST':
         car_wheel_name = request.form['car_wheel_name']
@@ -122,6 +119,7 @@ def step5():
 def summary():
     ''' Summary page '''
     car = db.load_car()
+    cars = db.load_cars()
     extras_price = 0
     if request.method == "POST":
         extras = request.form['extras']

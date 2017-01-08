@@ -5,13 +5,16 @@
     border: 1px solid lightgray;
 }
 .class-thumbnail button{
-    float: right;
 }
 .trimradio{
     width: 46%;
 }
 .class-thumbnail input[type="radio"], .wheel-thumbnail input[type="radio"], .color-thumbnail input[type="radio"]{
     display: none;
+}
+.class-thumbnail img{
+    width: 120px;
+    float: right;
 }
 .right{float:right;}
 
@@ -23,6 +26,9 @@
 }
 .tx-grey{
     color:lightgrey;
+}
+.tx-darkgrey{
+    color:slategrey;
 }
 #summary{
     min-height:400px;
