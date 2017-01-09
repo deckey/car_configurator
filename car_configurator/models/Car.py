@@ -1,3 +1,4 @@
+
 class CarTrim(dict):
 
     def __init__(self, style, description, price):
@@ -7,7 +8,6 @@ class CarTrim(dict):
 
 
 class CarEngine(dict):
-
     default_transmission = 'Manual'
 
     def __init__(self, name, power, fuel, price):

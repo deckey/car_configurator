@@ -66,3 +66,7 @@
     min-width:30px;
     float:right;
 }
+.icon-thumbnail{
+    padding:0.4%;
+    border: 1px solid lightgray;
+}
