@@ -63,21 +63,18 @@ class Car(dict):
         + self.engine['price'] + self.wheel['price']
 
     @staticmethod
-    def add_trim(car, trim):
-        car['trim'] = trim
+    def add_part(car, key, part):
+        car.update({key: part})
         car['price'] = Car.get_price(car)
         return car
 
-    @staticmethod
-    def add_engine(car, engine):
-        car['engine'] = engine
-        car['price'] = Car.get_price(car)
-        return car
-
-    @staticmethod
-    def add_wheel(car, wheel):
+    # decorator to set wheel price and return updated car
+    def wheel_price(car, wheel):
+        def car_price(car):
+            price = car['base_price'] + car['trim']['price'] + car['engine']['price'] + car['extras_price']
+            return price
         car['wheel'] = wheel
-        car['price'] = Car.get_price(car)
+        car['price'] = car_price(car) + wheel['price']
         return car
 
     @staticmethod
@@ -95,16 +92,6 @@ class Car(dict):
             items.append(new_extra.__dict__)
         car['extras'] = items
         return car
-
-    @staticmethod
-    def add_extras(car, extras, prices):
-        car['extras'] = [{'name': equipment, 'price': price} for equipment, price in zip(extras, prices)]
-        extras_total_price = sum([price for price in prices])
-        return extras_total_price
-
-    @staticmethod
-    def calculate_extras(car, extras):
-        print('INCOMING EXTRAS: ', extras)
 
     @staticmethod
     def get_extras(car):

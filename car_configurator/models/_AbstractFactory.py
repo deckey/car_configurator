@@ -17,7 +17,6 @@ class AbstractCarFactory():
     # for demo purposes, only 'default' factory is used
     @abstractmethod
     def create_factory(self, factory):
-        print('abstract class called')
         if factory == "default":
             return DefaultCarFactory()
         elif factory == "nissan":

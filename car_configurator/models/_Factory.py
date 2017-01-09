@@ -1,4 +1,4 @@
-from .Car import CarTrim, CarEngine
+from .Car import CarTrim, CarEngine, CarWheel
 
 
 class CarPartFactory(object):
@@ -8,6 +8,8 @@ class CarPartFactory(object):
             return CarTrimFactory()
         if type == "engine":
             return CarEngineFactory()
+        if type == 'wheel':
+            return CarWheelFactory()
 
     def create_parts(self):
         raise NotImplementedError
@@ -33,3 +35,11 @@ class CarEngineFactory(CarPartFactory):
         e4 = CarEngine('2.8 TDI', '220 HP', 'diesel', 8400)
         return [engine.__dict__ for engine in [e0, e1, e2, e3, e4]]
 
+
+class CarWheelFactory(CarPartFactory):
+    def create_parts(self):
+        # wheel creation
+        w0 = CarWheel('Basic', 16, 'steel', 0)
+        w1 = CarWheel('Idle', 17, 'alloy', 600)
+        w2 = CarWheel('Super', 18, 'alloy', 1200)
+        return [wheel.__dict__ for wheel in [w0, w1, w2]]

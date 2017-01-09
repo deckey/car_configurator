@@ -13,6 +13,15 @@ cars_file = os.path.join(dir, 'data/cars.json')
 
 trim_factory = CarPartFactory().factory('trim')
 engine_factory = CarPartFactory().factory('engine')
+wheel_factory = CarPartFactory().factory('wheel')
+
+
+# mockup database lookup
+
+
+def load_car():
+    with open(car_file, 'r') as f:
+        return json.load(f)
 
 
 def load_cars():
@@ -23,11 +32,6 @@ def load_cars():
 def save_car(car):
     with open(car_file, 'w') as f:
         return json.dump(car, f, separators=(',', ':'), sort_keys=True)
-
-
-def load_car():
-    with open(car_file, 'r') as f:
-        return json.load(f)
 
 
 def find_car(model):
@@ -55,29 +59,15 @@ def find_engine(name):
 
 
 def find_wheel(name):
-    wheels = create_wheels()
+    wheels = wheel_factory.create_parts()
     for wheel in wheels:
         if wheel['name'] == name:
             return wheel
     return wheels[0]
 
 
-def create_wheels():
-    # wheels creation
-    w0 = CarWheel('Basic', 16, 'steel', 0)
-    w1 = CarWheel('Idle', 17, 'alloy', 600)
-    w2 = CarWheel('Super', 18, 'alloy', 1200)
-
-    wheels = [wheel.__dict__ for wheel in [w0, w1, w2]]
-    return wheels
-
-
-def initialize():
-    return create_cars(), create_trims(), create_engines()
-
-
 def create_extra_equipment():
-    # Equipment composite pattern
+    # Equipment composite pattern / client code
 
     safety = EquipmentComposite('Safety')
     safety.add_children(

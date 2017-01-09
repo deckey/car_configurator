@@ -1,6 +1,6 @@
 from car_configurator import app
 from .models.Car import Car, CarEngine, CarTrim
-from .models._Factory import CarPartFactory, CarEngineFactory, CarTrimFactory
+from .models._Factory import CarPartFactory, CarEngineFactory, CarTrimFactory, CarWheelFactory
 from .models._AbstractFactory import AbstractCarFactory
 import datetime
 import car_configurator.db as db
@@ -16,10 +16,8 @@ car = db.save_car(cars[0])
 
 # CarPartFactory
 trim_factory = CarPartFactory().factory('trim')
-trims = trim_factory.create_parts()
-
 engine_factory = CarPartFactory().factory('engine')
-engines = engine_factory.create_parts()
+wheel_factory = CarPartFactory().factory('wheel')
 
 
 @app.route('/')
@@ -51,7 +49,7 @@ def step2():
         'step2.html',
         title='Step 2: Select trim level',
         car=car,
-        trims=trims,
+        trims=trim_factory.create_parts(),
         icon="trim")
 
 
@@ -62,7 +60,8 @@ def step3():
     if request.method == "POST":
         trim_style = request.form['trim_style']
         car_trim = db.find_trim(trim_style)
-        car = Car.add_trim(car, car_trim)
+        car = Car.add_part(car, 'trim', car_trim)
+
 
     db.save_car(car)
 
@@ -70,7 +69,7 @@ def step3():
         'step3.html',
         title='Step 3: Select engine & transmission',
         car=car,
-        engines=engines,
+        engines=engine_factory.create_parts(),
         icon="engine")
 
 
@@ -83,7 +82,7 @@ def step4():
         car_engine_transmission = request.form['car_engine_transmission']
         engine = db.find_engine(car_engine_name)
         engine['transmission'] = car_engine_transmission
-        car = Car.add_engine(car, engine)
+        car = Car.add_part(car, 'engine', engine)
     else:
         engine = car['engine']
 
@@ -92,7 +91,7 @@ def step4():
         'step4.html',
         title='Step 4: Select features',
         car=car,
-        wheels=db.create_wheels(),
+        wheels=wheel_factory.create_parts(),
         icon="features")
 
 
@@ -103,7 +102,7 @@ def step5():
     if request.method == 'POST':
         car_wheel_name = request.form['car_wheel_name']
         wheel = db.find_wheel(car_wheel_name)
-        car = Car.add_wheel(car, wheel)
+        car = Car.wheel_price(car, wheel)
         car_ext_color = request.form['exterior_color']
         car_int_color = request.form['interior_color']
         car_material = request.form['interior_material']
