@@ -3,7 +3,7 @@ from .models.Car import Car, CarEngine, CarTrim
 from .models._Factory import CarPartFactory, CarEngineFactory, CarTrimFactory, CarWheelFactory
 from .models._AbstractFactory import AbstractCarFactory
 import datetime
-import car_configurator.db as db
+from car_configurator import db
 from flask import render_template, request
 import json
 
