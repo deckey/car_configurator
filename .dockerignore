@@ -1,0 +1,7 @@
+.vscode/
+venv/
+__pycache__
+car_configurator/**/*.pyc
+car_configurator/data/*.json
+*.wsgi
+**/.DS_Store
