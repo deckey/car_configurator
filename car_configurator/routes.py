@@ -31,7 +31,7 @@ def step1():
     ''' Car class selection '''
     return render_template(
         'step1.html',
-        title='Step 1: Select car class',
+        title='Step 1: Select car class (Abstract factory pattern)',
         car=car,
         cars=cars)
 
@@ -47,7 +47,7 @@ def step2():
     db.save_car(car)
     return render_template(
         'step2.html',
-        title='Step 2: Select trim level',
+        title='Step 2: Select trim level (Factory pattern)',
         car=car,
         trims=trim_factory.create_parts(),
         icon="trim")
@@ -67,7 +67,7 @@ def step3():
 
     return render_template(
         'step3.html',
-        title='Step 3: Select engine & transmission',
+        title='Step 3: Select engine & transmission (Decorator pattern)',
         car=car,
         engines=engine_factory.create_parts(),
         icon="engine")
@@ -89,7 +89,7 @@ def step4():
     db.save_car(car)
     return render_template(
         'step4.html',
-        title='Step 4: Select features',
+        title='Step 4: Select features (Composite pattern)',
         car=car,
         wheels=wheel_factory.create_parts(),
         icon="features")
@@ -97,7 +97,7 @@ def step4():
 
 @app.route('/step5', methods=['GET', 'POST'])
 def step5():
-    '''Select extra components'''
+    '''Select extra components '''
     car = db.load_car()
     if request.method == 'POST':
         car_wheel_name = request.form['car_wheel_name']
@@ -115,7 +115,7 @@ def step5():
     return render_template(
         'step5.html',
         car=car,
-        title='Step 5: Extra components',
+        title='Step 5: Extra components (Composite pattern)',
         extras_equipment=Car.get_extras(car),
         extras=extras,
         extras_prices=Car.get_extras_prices(car),
