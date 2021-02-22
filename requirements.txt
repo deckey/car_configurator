@@ -8,3 +8,4 @@ Werkzeug==0.16.0 #1.0.1
 feedparser
 flask-reverse-proxy-fix
 cachelib
+python-dotenv
